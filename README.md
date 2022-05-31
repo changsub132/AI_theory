@@ -69,15 +69,22 @@ k = -lnW -> (k > 0 이며 W = 0 ~ 1)
 
 
 # Cross Entropy
-우리는 실제 데이터의 분포 q를 모른다. 이때 모델링(딥러닝, 머신러닝,...)으로 예측한 분포 p(x)를 통해 q를 구해야된다.  
+우리는 실제 데이터의 분포 q(x)를 모른다. 이때 모델링(딥러닝, 머신러닝,...)으로 예측한 분포 p(x)를 통해 q(x)를 구해야된다.  
 이때 쓰이는 것이 loss function 중 하나인 Cross Entropy  
-
-
-
-
-
-
-
+# E[p,q] = -sigma(q(x)lnp(x))
+왜 저  공식인가? -> Cross Entropy를 최소화 하는 것은 log likelihood를 최대화 하는 것과 같다.  
+확률(Probability) : 어떤 시행에서 특정 결과(sample)가 나올 가능성. 즉, 시행 전 모든 경우의 수의 가능성은 정해져 있으며 그 총합은 1(100%)이다.  
+우도(가능도, Likelihood) : 어떤 시행을 충분히 수행한 뒤 그 결과(sample)를 토대로 경우의 수의 가능성을 도출하는 것  
+예를 들어 보자 주사위 한개를 던저서 1이 나올 확률은 1/6이다. (즉 모델과 추정치로 부터 데이터를 구하는) 
+하지만 실제로 던지게 되면 1/6로 1이 나온다는 보장은 없다. 계속 시행해서 1/6확률이 나오는 분포를 찾아야된다. 이것이 likelihood이다. (즉 데이터로 부터 정확한 모델과 추정치를 찾는)  
+그렇다면 왜 Maximum Likelihood Estimation을 사용하는가? 데이터를 잘 설명하는 것이 likelihood가 높다.  
+그렇다면 왜 Cross Entropy를 최소화 하는 것은 log likelihood를 최대화 하는 것인가?  
+likelihood의 공식은 p(x|y) = product(p(x|y))  
+최대값을 구하기 위해 편미분을 해서 0이 되는 y값을 찾자 -> d/dy{p(x|y)} = 0  
+편미분을 할려고하니 product는 곱집합이라 계산이 어렵다. 그래서 로그와 음수를 취해서 최소값을 찾자  
+-ln(p(x|y)) = -ln(product(p(x|y)) = -sigma(ln(p(x|y)))  
+d/dy{-sigma(ln(p(x|y)))} = 0 -> 이제 이렇게 우도 해보면 Cross Entropy와 동일하다.  
+즉, log likelihood를 최대화는 likelihood에 로그과 음수를 취해 최소를 구하는 것이고 이는 Cross Entropy 최소 구하는 것과 동일하다.
 
 
 
