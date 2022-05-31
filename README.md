@@ -103,8 +103,11 @@ P(car1|select3) = P(select3|car1)P(car1) / P(select3) = 1/3
 P(select3|car1) = 1/2  
 P(car1) = 1/3  
 P(select3) = 1/2  
-
-
+그럼 이제 3번 문을 열었습니다. 이때 자동차가 2번 문에 있을 확률 : 2/3 -> P(car2|select3) : 조건부 확률  
+P(car2|select3) = P(select3|car1)P(car1) / P(select3) = 2/3  
+P(select3|car2) = 1  
+P(car2) = 1/3  
+P(select3) = 1/2 
 
 
 
