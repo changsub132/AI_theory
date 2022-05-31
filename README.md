@@ -37,7 +37,9 @@ a~k개의 뽑는 경우가 있다 가정
 W = {N!/((Na!)x(N-Na)!)} x {(N-Na)!/((Nb!)x(N-Na-Nb)!)} x ....... x {(N-...-Nl)!/((Nk!)x(N-...-Nl-Nk)!)} -> 순열  
 W = {N!/((N!Na!...Nk!)x(N-Na-....-Nk)!)}  
 N-Na-Nb-.....-Nk = 0 -> 0! = 1  
-W = N!product(1/Nk!)
+W = N!product(1/Nk!)  
+S = klnW에 대입  
+S = kln(N!product(1/Nk!)) = (k){ln(N!) - sigma(ln(Nk))}
 
 
 
