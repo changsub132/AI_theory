@@ -65,7 +65,7 @@ k = -lnW -> (k > 0 이며 W = 0 ~ 1)
 주사위를 한번 던진 결과를 가지고 그 결과를 주사위가 준 일반적인 결과라 할 수 없다.  
 어쩌다 처음에 숫자가 높을 수도 있고, 때로는 낮을 수도 있기 때문이다.  
 따라서 여러번 시행하여 그에 대한 평균으로 비교해야 하기 때문에 기대값이 활용된다.  
-# E[k] = -sigma(p(x)lnp(x)) 
+# E[k] = -sigma(q(x)lnq(x)) 
 
 
 # Cross Entropy
@@ -83,7 +83,7 @@ likelihood의 공식은 p(x|y) = product(p(x|y))
 최대값을 구하기 위해 편미분을 해서 0이 되는 y값을 찾자 -> d/dy{p(x|y)} = 0  
 편미분을 할려고하니 product는 곱집합이라 계산이 어렵다. 그래서 로그와 음수를 취해서 최소값을 찾자  
 -ln(p(x|y)) = -ln(product(p(x|y)) = -sigma(ln(p(x|y)))  
-d/dy{-sigma(ln(p(x|y)))} = 0 -> 이제 이렇게 우도 해보면 Cross Entropy와 동일하다.  
+d/dy{-sigma(ln(p(x|y)))} = 0 -> 이제 이렇게 유도 해보면 Cross Entropy와 동일하다.  
 즉, log likelihood를 최대화는 likelihood에 로그과 음수를 취해 최소를 구하는 것이고 이는 Cross Entropy 최소 구하는 것과 동일하다.
 
 # 베이즈 정리
@@ -107,7 +107,7 @@ P(car1) = 1/3
 P(select3) = 1/2  
 그럼 이제 3번 문을 열었습니다. 이때 자동차가 2번 문에 있을 확률 : 2/3 -> P(car2|select3) : 조건부 확률  
 P(car2|select3) = P(select3|car2)P(car2) / P(select3) = 2/3  
-P(select3|car2) = 1  
+P(select3|car2) = 1 -> 당신이 1번을 선택했기 때문에 2번에 차가 있으면 결국 3번 밖에 열수없다  
 P(car2) = 1/3  
 P(select3) = 1/2  
 이는 AI의 추론에 큰 도움이 된다. 데이터가 많으면 많을수록 올바른 추론에 도달한다. 즉 사전 확률을 지속적 업데이트 하면은 성능은 올라간다.  
@@ -127,8 +127,12 @@ Q> 넷플릭스는 돈을 어떻게 벌까요?
 (0.75x0.8)/(0.75x0.8)+(0.25x0.2) = 0.6/0.65 = 0.923 -> 92.3% 그럼 이 정보를 가지고 그 사람은 라이언 레이놀즈가 나오는 액션 영화에 노출시키면 좋을것이다. 
 
 # Kullback–Leibler divergence (KL - Divergence)
-내가 모델링하여 추론한 엔트로피와 정확하게 모델링한 엔트로피간은 오차율(cost)  
+내가 모델링하여 추론한 엔트로피와 정확하게 모델링한 엔트로피 간의 오차율(cost)  
 KL Divergence = cross entropy - entropy 여기서 entropy는 사실의 고정 값이므로 오차율(cost)를 최소로하는 것은 cross entropy를 최소화하는 것이다.  
+KL Divergence = E[p,q] - E[k] = (-sigma(q(x)lnp(x))) - (-sigma(q(x)lnq(x))) = -sigma{q(x)ln(p(x)/q(x))} -> 예측 모델링 모양만 다르지 결국 Cross Entropy와 동일  
+
+# Mutual Information
+KL Divergence는 나의 모델링과 실제 모델링 간의 오차율(error)를 찾는 것이면 Mutual Information는 반대로 둘이 얼마나 비슷한지를 찾는 척도 이다.  
 
 
 
