@@ -183,16 +183,33 @@ playground.tensorflow.org  -> MLP 실험 사이트 해보세요 재밌어요
 ![week4_0300](https://user-images.githubusercontent.com/50193583/171559738-f4da0b71-5914-433c-b037-0120edcac57c.png)
   
 학습 진행 과정(feedforward network, backpropagation)  
-<feedforward network>
+feedforward network
 1. 가중치 초기값 설정(-0.3 ~ 0.3, small random value)
 2. 학습 데이터 = [x1,x2,x3,.....,xj], activation function = f(x), theta : 임계값
 3. y_j = f{ sigma{wj * xj} - theta } -> 해당 계산은 생성 은닉층 만큼 진행
 4. e = (y_o - y_j) -> 오류값 = 실제값 - 예측값(마지막 출력값)
-<backpropagation>
-1. 
   
+backpropagation
+1. 출력에서 마지막 은닉 가중치 업데이트 (오류가 0이 아닌 경우 가중치 업데이트 0이면 업데이트 안함)
+2. delta = 출력값 * (1-출력값) * e 
+3. w_j+1 = w_j + learning_rate * xj * delta
+4. 은닉에서 은닉 가중치 업데이트
+5. delta = 해당_출력값 * (1-해당_출력값) * 이전_delta * 이전_weight
+6. w_j+1 = w_j + learning_rate * xj * delta
+7. 이를 입력까지 계속 반복
+8. 그후 다시 feedforward network 진행 오류 다시 계산 오류가 0에 가까워 질때까지 진행
 
-# Activation Function
+# 이제 실제 딥러닝이라고 불리며 사용하고있는 방법 들에 대해 논의
+# Loss Function (손실 함수)
+손실함수는 위에서 설명한 봐가 있다.  
+Cross Entropy가 이에 헤당한다. 정확히는 KL-Divergence
+Calssification에서 Cross Entropy가 많이 쓰이고 Regression에서는 MSE가 쓰인다.  
+그 외에도 종류는 천차만별이다.
+
+# Optimization Function (최적화 함수)
+
+
+# Activation Function (활성화 함수)
 활성화함수  
 이전 층(layer)의 결과값을 변환하여 다른 층의 뉴런으로 신호를 전달하는 역할  
 왜 쓸까? -> 데이터를 비선형으로 변형하기 위해 사용한다.
@@ -202,10 +219,12 @@ playground.tensorflow.org  -> MLP 실험 사이트 해보세요 재밌어요
 하지만 문제점이 있다. gradient vanishing 문제 
 
 
+# Loss Function (손실 함수)
+손실함수의 결과값을 최소화하는 함수이다. 즉 오류률을 줄이기 위한 가중치 업데이트 방법을 말한다.  
+이전에 MLP의 
 
 
-
-
+# Convolution Neural Network (CNN)
 
 
 
