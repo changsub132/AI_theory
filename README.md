@@ -165,7 +165,13 @@ MSE에 루트(√)를 씌운 것으로 MSE와 기본적으로 동일하다. MSE 
 신경망 중 가장 간단한 형태 (입력과 가중치, activation function만 사용)  
 ![Perceptrons](https://user-images.githubusercontent.com/50193583/171540098-7cbaff7d-ae36-48f2-92ca-26ef61f18ab8.jpeg)
   
-
+학습 진행 과정  
+1. 가중치 초기값 설정(0~1, small random value)
+2. 학습 데이터 = [x1,x2,x3,.....,xj], activation function = f(x), theta : 임계값
+3. y_j = f{ sigma{wj * xj} - theta } -> 출력값
+4. e = (y_o - y_j) -> 오류값 = 실제값 - 예측값
+5. 오류가 0이 아닌 경우 가중치 업데이트 0이면 업데이트 안함
+6. w_j+1 = w_j + learning_rate * xj * e
 
 
 
