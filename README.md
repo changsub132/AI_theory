@@ -30,7 +30,7 @@ Th>Tc 므로 엔트로피 s>0
 하지만 당시 원자론은 증명되지 못 했고 확률통계는 신을 모독하는 죄로 해당 이론은 무시당함 그리고 자살  
 추후 아인슈타인이 원자론 증명 그래서 죽은 후에야 인정 받은 이론   
 
-# S = klnW (볼츠만 엔트로피)  
+# S = klogW (볼츠만 엔트로피)  
 S: 엔트로피  
 k: 볼츠만 상수  
 W: 미시적 상태에 원자가 가질수 있는 배열의 수  
@@ -41,8 +41,8 @@ W = {N!/((Na!)x(N-Na)!)} x {(N-Na)!/((Nb!)x(N-Na-Nb)!)} x ....... x {(N-...-Nl)!
 W = {N!/((N!Na!...Nk!)x(N-Na-....-Nk)!)}  
 N-Na-Nb-.....-Nk = 0 -> 0! = 1  
 W = N!product(1/Nk!)  
-S = klnW에 대입  
-S = kln(N!product(1/Nk!)) = (k){ln(N!) - sigma(ln(Nk))}  
+S = klogW에 대입  
+S = klog(N!product(1/Nk!)) = (k){log(N!) - sigma(log(Nk))}  
 
 # 클로드 섀넌
 "그럼, 볼츠만의 이론으로 정보량의 표현이 가능하겠네"  
@@ -56,22 +56,22 @@ How? -> bit 개념 도입 (0과 1로 표현한다.)
 때문에 y=-logx 그래프를 가질것 이다.  
 좀 더 직관적으로 해석해보자  
 2^k = W -> (k는 W 경우의 수를 표현하기 위한 최소한의 자원량)  
-k = -lnW -> (k > 0 이며 W = 0 ~ 1)  
+k = -lgW -> (k > 0 이며 W = 0 ~ 1)  
 
-# k = -lnW  
+# k = -lgW  
 여기서 k는 확률값으로 자연에 존재하는 사전은 무수히 발생되므로 기대값으로 구한다.  
 "기대값은 각 원소 값에 각 확률을 곱한 값의 합"  
 왜 기대값을 구해야 하나?  
 주사위를 한번 던진 결과를 가지고 그 결과를 주사위가 준 일반적인 결과라 할 수 없다.  
 어쩌다 처음에 숫자가 높을 수도 있고, 때로는 낮을 수도 있기 때문이다.  
 따라서 여러번 시행하여 그에 대한 평균으로 비교해야 하기 때문에 기대값이 활용된다.  
-# E[k] = -sigma(q(x)lnq(x)) 
+# E[k] = -sigma(q(x)lgq(x)) 
 
 
 # Cross Entropy
 우리는 실제 데이터의 분포 q(x)를 모른다. 이때 모델링(딥러닝, 머신러닝,...)으로 예측한 분포 p(x)를 통해 q(x)를 구해야된다.  
 이때 쓰이는 것이 loss function 중 하나인 Cross Entropy  
-# E[p,q] = -sigma(q(x)lnp(x))
+# E[p,q] = -sigma(q(x)lgp(x))
 왜 저  공식인가? -> Cross Entropy를 최소화 하는 것은 log likelihood를 최대화 하는 것과 같다.  
 확률(Probability) : 어떤 시행에서 특정 결과(sample)가 나올 가능성. 즉, 시행 전 모든 경우의 수의 가능성은 정해져 있으며 그 총합은 1(100%)이다.  
 우도(가능도, Likelihood) : 어떤 시행을 충분히 수행한 뒤 그 결과(sample)를 토대로 경우의 수의 가능성을 도출하는 것  
@@ -82,8 +82,8 @@ k = -lnW -> (k > 0 이며 W = 0 ~ 1)
 likelihood의 공식은 p(x|y) = product(p(x|y))  
 최대값을 구하기 위해 편미분을 해서 0이 되는 y값을 찾자 -> d/dy{p(x|y)} = 0  
 편미분을 할려고하니 product는 곱집합이라 계산이 어렵다. 그래서 로그와 음수를 취해서 최소값을 찾자  
--ln(p(x|y)) = -ln(product(p(x|y)) = -sigma(ln(p(x|y)))  
-d/dy{-sigma(ln(p(x|y)))} = 0 -> 이제 이렇게 유도 해보면 Cross Entropy와 동일하다.  
+-lg(p(x|y)) = -lg(product(p(x|y)) = -sigma(lg(p(x|y)))  
+d/dy{-sigma(lg(p(x|y)))} = 0 -> 이제 이렇게 유도 해보면 Cross Entropy와 동일하다.  
 즉, log likelihood를 최대화는 likelihood에 로그과 음수를 취해 최소를 구하는 것이고 이는 Cross Entropy 최소 구하는 것과 동일하다.
 
 # 베이즈 정리
@@ -124,15 +124,21 @@ Q> 넷플릭스는 돈을 어떻게 벌까요?
 싫어요 5편 중 1편만이 라이언 레이놀즈가 나왔다. 싫어하는 영화에 라이언 레이놀즈가 나올 확률 20%  
 그렇다면 라이언 레이놀즈가 나온다면 그 영화를 얼마나 좋아할까? 그 확률은?  
 베이즈에 따라 구하면 이미 사전에 액션영화를 좋아할 확률을 75%로 업데이트 했다. 그러므로 75:25의 비율에서 계산하자  
-(0.75x0.8)/(0.75x0.8)+(0.25x0.2) = 0.6/0.65 = 0.923 -> 92.3% 그럼 이 정보를 가지고 그 사람은 라이언 레이놀즈가 나오는 액션 영화에 노출시키면 좋을것이다. 
+(0.75x0.8)/(0.75x0.8)+(0.25x0.2) = 0.6/0.65 = 0.923 -> 92.3% 그럼 이 정보를 가지고 그 사람은 라이언 레이놀즈가 나오는 액션 영화에 노출시키면 좋을것이다.  
+<img width="429" alt="캡처" src="https://user-images.githubusercontent.com/50193583/171524543-47f16a96-6adb-471a-b993-b1a6cc1ab7a8.PNG">  
+<img width="310" alt="1" src="https://user-images.githubusercontent.com/50193583/171524532-77a578a4-1546-4733-9658-a3d28864ac4f.PNG"> 
 
 # Kullback–Leibler divergence (KL - Divergence)
 내가 모델링하여 추론한 엔트로피와 정확하게 모델링한 엔트로피 간의 오차율(cost)  
 KL Divergence = cross entropy - entropy 여기서 entropy는 사실의 고정 값이므로 오차율(cost)를 최소로하는 것은 cross entropy를 최소화하는 것이다.  
-KL Divergence = E[p,q] - E[k] = (-sigma(q(x)lnp(x))) - (-sigma(q(x)lnq(x))) = -sigma{q(x)ln(p(x)/q(x))} -> 예측 모델링 모양만 다르지 결국 Cross Entropy와 동일  
+KL Divergence = E[p,q] - E[k] = (-sigma(q(x)lgp(x))) - (-sigma(q(x)lgq(x))) = -sigma{q(x)lg(p(x)/q(x))} -> 예측 모델링 모양만 다르지 결국 Cross Entropy와 동일  
 
 # Mutual Information
 KL Divergence는 나의 모델링과 실제 모델링 간의 오차율(error)를 찾는 것이면 Mutual Information는 반대로 둘이 얼마나 비슷한지를 찾는 척도 이다.  
+두 개의 확률변수 x, y가 있다.  
+Mutual Information = sigma{p(x,y)log(p(x,y)/p(x)p(y))}  
+만약 두 확률변수가 독립이면 p(x,y) = p(x)p(y) 성립하므로 log1 = 0 따라서 Mutual Information = 0
+
 
 
 
