@@ -173,7 +173,22 @@ MSE에 루트(√)를 씌운 것으로 MSE와 기본적으로 동일하다. MSE 
 5. 오류가 0이 아닌 경우 가중치 업데이트 0이면 업데이트 안함
 6. w_j+1 = w_j + learning_rate * xj * e
 
+# Multilayer Perceptron(MLP)
+힐튼이 제안한 이론  
+Perceptron이 비선형 데이터를 추론 못하는 문제를 해결함  
+입력층과 출력층 사이에 하나 이상의 히든층이 존재하는 신경망 그리고 학습을 위해 backpropagetion 적용  
+지금은 Multilayer perceptron를 fully connected layer(FC)이라고 부른다. 그리고 Dense layer 라고도 한다. 솔직히 불만임 왜 MLP라고 하면 될것을 FC라고 했다 다시 Dense라고 했다 말을 바꿀까? 괜히 사람 헷갈리게 구글이 처음 tensorflow 만들면서 이렇게 이름을 바꿔서 라이브러리를 만들다보니 어쩔수없지만 ..... 대기업의 힘이구만 ㅡㅡ;  
 
+
+
+# Activation Function
+활성화함수  
+이전 층(layer)의 결과값을 변환하여 다른 층의 뉴런으로 신호를 전달하는 역할  
+왜 쓸까? -> 데이터를 비선형으로 변형하기 위해 사용한다.
+초기 활성화함수는 임계치을 넘으면 1(혹은 True)를 출력하고 그렇지 않을 때는 0(False)을 출력하는 이진분류기 또는 퍼셈트론에 쓰이던 함수  
+처음 linear, step, sigmoid 등을 사용 (linear는 입출력이 동일하여 딥의 의미가 없어지고 step은 binary case에서는 좋지만 optimization에서 미분을 해야되는데 못 하므로 의미 없음)  
+그래서 sigmoid를 많이 썼다. (퍼셉트론 당시에만) sigmoid = 1/(1+exp^-x)  
+하지만 문제점이 있다. gradient vanishing 문제 
 
 
 
