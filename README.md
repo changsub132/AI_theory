@@ -200,6 +200,7 @@ backpropagation
 8. 그후 다시 feedforward network 진행 오류 다시 계산 오류가 0에 가까워 질때까지 진행
 
 # 이제 실제 딥러닝이라고 불리며 사용하고있는 방법 들에 대해 논의
+
 # Loss Function (손실 함수)
 손실함수는 위에서 설명한 봐가 있다.  
 Cross Entropy가 이에 헤당한다. 정확히는 KL-Divergence
@@ -207,6 +208,19 @@ Calssification에서 Cross Entropy가 많이 쓰이고 Regression에서는 MSE�
 그 외에도 종류는 천차만별이다.
 
 # Optimization Function (최적화 함수)
+손실함수의 결과값을 최소화하는 함수이다. 즉 오류률을 줄이기 위한 가중치 업데이트 방법을 말한다.  
+처음 MLP의 backpropagation에서 가중치 업데이트는 단순히 delta값을 구하는 방법은 perceptron rule의 기반이다.  
+하지만 비선형에는 쓸수없으니 바꿔야 했고 delta rule이 등장한다.  
+delta rule 뒤에 숨겨진 key idea는 gradient descent를 이용하는 것이다.  
+gradient descent (GD)는 오류률을 미분해서 0이되는 값을 찾을때까지 계속 가중치를 업데이트 하는 방법 이다.  
+(미분해서 0되다는 것이 최소를 의미하는 건 고등학교에서 배우니 알겠죠 참고로   
+
+
+
+
+
+
+
 
 
 # Activation Function (활성화 함수)
@@ -219,9 +233,6 @@ Calssification에서 Cross Entropy가 많이 쓰이고 Regression에서는 MSE�
 하지만 문제점이 있다. gradient vanishing 문제 
 
 
-# Loss Function (손실 함수)
-손실함수의 결과값을 최소화하는 함수이다. 즉 오류률을 줄이기 위한 가중치 업데이트 방법을 말한다.  
-이전에 MLP의 
 
 
 # Convolution Neural Network (CNN)
