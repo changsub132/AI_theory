@@ -139,6 +139,15 @@ KL Divergence는 나의 모델링과 실제 모델링 간의 오차율(error)를
 Mutual Information = sigma{p(x,y)log(p(x,y)/p(x)p(y))}  
 만약 두 확률변수가 독립이면 p(x,y) = p(x)p(y) 성립하므로 log1 = 0 따라서 Mutual Information = 0
 
+# 그 외 loss function
+
+1. MSE(Mean Squared Error)  
+MSE가 크다는 것은 데이터와 평균 사이에 차이가 크다는 것이고, MSE가 작다는 것은 데이터와 평균 사이의 차이가 작다는 것을 알 수 있어요. 즉 데이터가 평균으로부터 떨어진 정도를 표현한 것이다  
+MSE = 1/N(sigma{(q(x)-p(x))^2}) -> 실제값과 예측값의 차이를 제곱하여 평균을 구함  
+이는 neural network 보다는 regression에 많이 쓰임  
+2. RMSE(Root Mean Squared Error)  
+MSE에 루트(√)를 씌운 것으로 MSE와 기본적으로 동일하다. MSE 값은 오류의 제곱을 구하기 때문에 실제 오류 평균보다 더 커지는 특성이 있어 MSE에 루트를 씌운 RMSE 은 값의 왜곡을 줄여준다.  
+더 많은 손실함수가 존재하지만 기본적으로는 위의것들이 많이 쓰인다. 이 외에는 솔직히 상황에 맞는 손실 함수를 직접 만드는 경우가 많다.  
 
 
 
