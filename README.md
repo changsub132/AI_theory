@@ -164,7 +164,7 @@ MSE에 루트(√)를 씌운 것으로 MSE와 기본적으로 동일하다. MSE 
 로젠블릿이 제안한 이론  
 신경망 중 가장 간단한 형태 (입력과 가중치, activation function만 사용)  
 ![Perceptrons](https://user-images.githubusercontent.com/50193583/171540098-7cbaff7d-ae36-48f2-92ca-26ef61f18ab8.jpeg)
-
+  
 
 
 
