@@ -213,7 +213,11 @@ Calssification에서 Cross Entropy가 많이 쓰이고 Regression에서는 MSE�
 하지만 비선형에는 쓸수없으니 바꿔야 했고 delta rule이 등장한다.  
 delta rule 뒤에 숨겨진 key idea는 gradient descent를 이용하는 것이다.  
 gradient descent (GD)는 오류률을 미분해서 0이되는 값을 찾을때까지 계속 가중치를 업데이트 하는 방법 이다.  
-(미분해서 0되다는 것이 최소를 의미하는 건 고등학교에서 배우니 알겠죠 참고로   
+(미분해서 0되다는 것이 최소를 의미하는 건 고등학교에서 배우니 알겠죠)  
+그럼 여기서 두가지 의문점은 갖는다. 첫째 미분해서 0이 최소인것은 Convex인 경우고 미분해서 0이 최대가 되는 Concave도 있지 않는가?  
+아니요 그럴일은 없다 왜?  
+gradient descent의 공식을 보면 w_j+1 = w_j - (learning_rate)(d/dw)(error) 인데 이전 가중치에서 오류를 편미분한 값을 빼주기 때문에 절대 Concave로 갈일은 없다.  
+두번째 minimum
 
 
 
