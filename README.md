@@ -203,7 +203,7 @@ backpropagation
 
 # Loss Function (손실 함수)
 손실함수는 위에서 설명한 봐가 있다.  
-Cross Entropy가 이에 헤당한다. 정확히는 KL-Divergence
+Cross Entropy가 이에 헤당한다. 정확히는 KL-Divergence  
 Calssification에서 Cross Entropy가 많이 쓰이고 Regression에서는 MSE가 쓰인다.  
 그 외에도 종류는 천차만별이다.
 
