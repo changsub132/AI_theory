@@ -187,7 +187,7 @@ feedforward network
 1. 가중치 초기값 설정(-0.3 ~ 0.3, small random value)
 2. 학습 데이터 = [x1,x2,x3,.....,xj], activation function = f(x), theta : 임계값
 3. y_j = f{ sigma{wj * xj} - theta } -> 해당 계산은 생성 은닉층 만큼 진행
-4. e = (y_o - y_j) -> 오류값 = 실제값 - 예측값(마지막 출력값)
+4. e = (y_o - y_j) -> 오류값 = 실제값 - 예측값(마지막 출력값) -> 실제는 단순 차이값이 아닌 loss function을 이용
   
 backpropagation
 1. 출력에서 마지막 은닉 가중치 업데이트 (오류가 0이 아닌 경우 가중치 업데이트 0이면 업데이트 안함)
@@ -211,13 +211,18 @@ Calssification에서 Cross Entropy가 많이 쓰이고 Regression에서는 MSE�
 손실함수의 결과값을 최소화하는 함수이다. 즉 오류률을 줄이기 위한 가중치 업데이트 방법을 말한다.  
 처음 MLP의 backpropagation에서 가중치 업데이트는 단순히 delta값을 구하는 방법은 perceptron rule의 기반이다.  
 하지만 비선형에는 쓸수없으니 바꿔야 했고 delta rule이 등장한다.  
-delta rule 뒤에 숨겨진 key idea는 gradient descent를 이용하는 것이다.  
-gradient descent (GD)는 오류률을 미분해서 0이되는 값을 찾을때까지 계속 가중치를 업데이트 하는 방법 이다.  
+delta rule의 핵심은 gradient descent를 이용하는 것이다.  
+Gradient Descent (GD)는 오류률을 미분해서 0이되는 값을 찾을 때까지 계속 가중치를 업데이트 하는 방법 이다.  
 (미분해서 0되다는 것이 최소를 의미하는 건 고등학교에서 배우니 알겠죠)  
-그럼 여기서 두가지 의문점은 갖는다. 첫째 미분해서 0이 최소인것은 Convex인 경우고 미분해서 0이 최대가 되는 Concave도 있지 않는가?  
+그럼 여기서 두 가지 의문점은 갖는다.  
+1. 첫째 미분해서 0이 최소인것은 Convex인 경우고 미분해서 0이 최대가 되는 Concave도 있지 않는가?  
 아니요 그럴일은 없다 왜?  
-gradient descent의 공식을 보면 w_j+1 = w_j - (learning_rate)(d/dw)(error) 인데 이전 가중치에서 오류를 편미분한 값을 빼주기 때문에 절대 Concave로 갈일은 없다.  
-두번째 minimum
+gradient descent의 공식을 보면 w_j+1 = w_j - (learning_rate)(d/dw)(error) 인데 이전 가중치에서 오류를 편미분한 값을 빼주기 때문에 절대 Concave로 갈 일은 없다.  
+2. 두번째 오류의 minimum을 구하는데 만약 무한히 넓은 함수 공간의 경우는 local minimum에 빠지거나 plateau에 빠질 수 있지 않는가?  
+맞는 말이다. 때문에 학습 속도도 느리고 미리 학습이 중단 되거나 영원히 않 끝날 수도 있다. 이는 GD의 문제점이다.  
+그래서 새로운 방법이 등장한다.  
+Stochastic Gradient Descent (SGD)이다. 전체 데이터(full batch) 대신 일부 데이터의 모음(mini Batch)를 사용하여 계산하는 것이다. 전체 데이터 중 무작위로 뽑아 사용하기 때문에 확률적(Stochastic)이라고 한다. 일부 데이터만을 학습하기 때문에 메모리 소모량이 낮으며 학습속도도 빠르다. 하지만 무작위로 데이터를 선정하므로 gradient가 불안정하게 움직이는 shooting 현상이 발생한다. 이것 때문에 local minimum에 빠진다 해도 쉽게 빠져나올 수는 있지만 global minimum  
+
 
 
 
