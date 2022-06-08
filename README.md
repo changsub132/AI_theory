@@ -183,13 +183,13 @@ playground.tensorflow.org  -> MLP 실험 사이트 해보세요 재밌어요
 ![week4_0300](https://user-images.githubusercontent.com/50193583/171559738-f4da0b71-5914-433c-b037-0120edcac57c.png)
   
 학습 진행 과정(feedforward network, backpropagation)  
-feedforward network
+feedforward network : 결과 값을 예측하는 과정  
 1. 가중치 초기값 설정(-0.3 ~ 0.3, small random value)
 2. 학습 데이터 = [x1,x2,x3,.....,xj], activation function = f(x), theta : 임계값
 3. y_j = f{ sigma{wj * xj} - theta } -> 해당 계산은 생성 은닉층 만큼 진행
 4. e = (y_o - y_j) -> 오류값 = 실제값 - 예측값(마지막 출력값) -> 실제는 단순 차이값이 아닌 loss function을 이용
   
-backpropagation
+backpropagation : 결과값과 실제값의 오류률을 계산하여 가중치를 다시 업데이트하는 과정
 1. 출력에서 마지막 은닉 가중치 업데이트 (오류가 0이 아닌 경우 가중치 업데이트 0이면 업데이트 안함)
 2. delta = 출력값 * (1-출력값) * e 
 3. w_j+1 = w_j + learning_rate * xj * delta
