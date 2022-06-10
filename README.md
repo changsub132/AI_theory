@@ -3,7 +3,7 @@
 [1. Entropy](#Entropy)  
 [1.1 Cross Entropy](#Cross_Entropy)  
 [2. 베이즈 정리](#베이즈_정리)  
-[3. 신경망](Neural_network)
+[3. 신경망](#Neural_network)
 
 # Entropy
 사디 카르노  
