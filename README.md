@@ -1,7 +1,7 @@
 # AI_theory
 
 [1. Entropy](#Entropy)  
-[1.1 Cross Entropy](#Cross Entropy)
+[1.1 Cross Entropy](#Cross_Entropy)
 
 # Entropy
 사디 카르노  
@@ -71,7 +71,7 @@ k = -lgW -> (k > 0 이며 W = 0 ~ 1)
 # E[k] = -sigma(q(x)lgq(x)) 
 
 
-# Cross Entropy
+# Cross_Entropy
 우리는 실제 데이터의 분포 q(x)를 모른다. 이때 모델링(딥러닝, 머신러닝,...)으로 예측한 분포 p(x)를 통해 q(x)를 구해야된다.  
 이때 쓰이는 것이 loss function 중 하나인 Cross Entropy  
 # E[p,q] = -sigma(q(x)lgp(x))
