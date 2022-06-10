@@ -1,7 +1,7 @@
 # AI_theory
 
 [1. Entropy](#Entropy)  
-[1.1 Cross Entropy](#Cross Entropy)
+[1.1 Cross Entropy](#Cross)
 
 # Entropy
 사디 카르노  
