@@ -221,11 +221,16 @@ gradient descent의 공식을 보면 w_j+1 = w_j - (learning_rate)(d/dw)(error) 
 2. 두번째 오류의 minimum을 구하는데 만약 무한히 넓은 함수 공간의 경우는 local minimum에 빠지거나 plateau에 빠질 수 있지 않는가?  
 맞는 말이다. 때문에 학습 속도도 느리고 미리 학습이 중단 되거나 영원히 않 끝날 수도 있다. 이는 GD의 문제점이다.  
 그래서 새로운 방법이 등장한다.  
-Stochastic Gradient Descent (SGD)이다. 전체 데이터(full batch) 대신 일부 데이터의 모음(mini Batch)를 사용하여 계산하는 것이다. 전체 데이터 중 무작위로 뽑아 사용하기 때문에 확률적(Stochastic)이라고 한다. 일부 데이터만을 학습하기 때문에 메모리 소모량이 낮으며 학습속도도 빠르다. 하지만 무작위로 데이터를 선정하므로 gradient가 불안정하게 움직이는 shooting 현상이 발생한다. 이것 때문에 local minimum에 빠진다 해도 쉽게 빠져나올 수는 있지만 global minimum에 도달할 수 없을 경우도 발생한다.  
-
-
-
-
+Stochastic Gradient Descent (SGD)이다.  
+전체 데이터(full batch) 대신 일부 데이터의 모음(mini Batch)를 사용하여 계산하는 것이다. 전체 데이터 중 무작위로 뽑아 사용하기 때문에 확률적(Stochastic)이라고 한다. 일부 데이터만을 학습하기 때문에 메모리 소모량이 낮으며 학습속도도 빠르다. 하지만 무작위로 데이터를 선정하므로 gradient가 불안정하게 움직이는 shooting 현상이 발생한다. 이것 때문에 local minimum에 빠진다 해도 쉽게 빠져나올 수는 있지만 global minimum에 도달할 수 없을 경우도 발생한다.  
+이를 해결하고자 Moment와 Adaptive를 사용한다.  
+먼저 Moment를 사용한 Momentum 이다.  
+이전의 Gradient 값도 고려하여 가중치를 업데이트하는 방법이다. 공식은 다음과 같다.  
+v_t = (r * v_t-1) + (learning_rate)(d/dw)(error) ...... [ r : moment variable 0 ~ 0.9 ]  
+w_t+1 = w_t - v_t  
+Momentum은 local minimum과 shooting 문제를 해결은 가능하나 이전 가중치를 계산에 계속 고려해야되서 학습속도가 느려진다.   
+그래서 Adaptive를 사용한다.  
+이를 가중치 업데이트 빈도수에 따라 learning_rate를 다르게 해준다. 
 
 
 
