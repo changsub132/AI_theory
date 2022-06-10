@@ -2,6 +2,7 @@
 
 [1. Entropy](#Entropy)  
 [1.1 Cross Entropy](#Cross_Entropy)
+[2. 베이즈 정리](#베이즈_정리)
 
 # Entropy
 사디 카르노  
@@ -89,7 +90,7 @@ likelihood의 공식은 p(x|y) = product(p(x|y))
 d/dy{-sigma(lg(p(x|y)))} = 0 -> 이제 이렇게 유도 해보면 Cross Entropy와 동일하다.  
 즉, log likelihood를 최대화는 likelihood에 로그과 음수를 취해 최소를 구하는 것이고 이는 Cross Entropy 최소 구하는 것과 동일하다.
 
-# 베이즈 정리
+# 베이즈_정리
 "토마스 베이즈에 의해 최초로 서술된 정리"  
 P(A|B) = {{P(B|A)P(A)} / P(B)}  
 "어떤 사건이 만들어 놓은 상황에서, 그 사건이 일어난 후 앞으로 일어나게 될 다른 사건의 가능성을 구하는 것"  
