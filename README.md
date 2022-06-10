@@ -1,5 +1,7 @@
 # AI_theory
 
+[Entropy](#Entropy)
+
 # Entropy
 사디 카르노  
 산업혁명 시대 증기기관 발명  
