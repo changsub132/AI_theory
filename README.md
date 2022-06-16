@@ -245,17 +245,15 @@ w_t+1 = w_t - {learning_rate/root(G+ls)}(d/dw)(error)
 이로써 학습 속도를 올린다.  
 5. 따라서 Moment와 Adaptive를 둘다 사용한 Adam을 주로 쓴다.  
 
-
-
-
 # Activation Function (활성화 함수)
 활성화함수  
 이전 층(layer)의 결과값을 변환하여 다른 층의 뉴런으로 신호를 전달하는 역할  
 왜 쓸까? -> 데이터를 비선형으로 변형하기 위해 사용한다.
-초기 활성화함수는 임계치을 넘으면 1(혹은 True)를 출력하고 그렇지 않을 때는 0(False)을 출력하는 이진분류기 또는 퍼셉트론에 쓰이던 함수로 처음 linear, step, sigmoid 등을 사용 (linear는 입출력이 동일하여 딥(deep)의 의미가 없어지고 step은 binary case에서는 좋지만 optimization에서 미분을 해서 오류를 줄여야 되는데 못 하므로 의미 없음)  
+1. 초기 활성화함수는 임계치을 넘으면 1(혹은 True)를 출력하고 그렇지 않을 때는 0(False)을 출력하는 이진분류기 또는 퍼셉트론에 쓰이던 함수로 처음 linear, step, sigmoid 등을 사용 (linear는 입출력이 동일하여 딥(deep)의 의미가 없어지고 step은 binary case에서는 좋지만 optimization에서 미분을 해서 오류를 줄여야 되는데 못 하므로 의미 없음)  
 그래서 sigmoid를 많이 썼다. (퍼셉트론 당시에만) 공식은 sigmoid = 1/(1+exp^-x) 이다.  
 하지만 문제점이 있다. gradient vanishing 문제  
 딥러닝의 경우 은닉층이 많이 깊어지는 경우가 많은데 이때 오류를 계속 줄이므로 즉 optimization에서 미분 점차 0이 되어저 간다. 그럼 학습이 종료가 되는데 sigmoid의 경우 함수 특성상 미분에서 0이 너무 빠르게 되어 깊은 망을 만들 수 없다.  
+2. 이를 해결하기 위한 활성화 함수는 많이 나왔지만 그 중 ReLu(Rectified Linear Unit)가 많이 쓰인다.  
 
 
 
