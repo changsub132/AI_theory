@@ -230,17 +230,17 @@ gradient descent의 공식을 보면 w_j+1 = w_j - (learning_rate)(d/dw)(error) 
 Stochastic Gradient Descent (SGD)이다.  
 전체 데이터(full batch) 대신 일부 데이터의 모음(mini Batch)를 사용하여 계산하는 것이다. 전체 데이터 중 무작위로 뽑아 사용하기 때문에 확률적(Stochastic)이라고 한다. 일부 데이터만을 학습하기 때문에 메모리 소모량이 낮으며 학습속도도 빠르다. 하지만 무작위로 데이터를 선정하므로 gradient가 불안정하게 움직이는 shooting 현상이 발생한다. 이것 때문에 local minimum에 빠진다 해도 쉽게 빠져나올 수는 있지만 global minimum에 도달할 수 없을 경우도 발생한다.  
 이를 해결하고자 Moment와 Adaptive를 사용한다.  
-1. 먼저 Moment를 사용한 Momentum 이다.  
+3. 먼저 Moment를 사용한 Momentum 이다.  
 이전의 Gradient 값도 고려하여 가중치를 업데이트하는 방법이다. 공식은 다음과 같다.  
 v_t = (r * v_t-1) + (learning_rate)(d/dw)(error) ...... [ r : moment variable 0 ~ 0.9 ]  
 w_t+1 = w_t - v_t  
 Momentum은 local minimum과 shooting 문제를 해결은 가능하나 이전 가중치를 계산에 계속 고려해야되서 학습속도가 느려진다.   
-2. 다음은 Adaptive를 사용한 Adagrad이다.  
+4. 다음은 Adaptive를 사용한 Adagrad이다.  
 이를 가중치 업데이트 빈도수에 따라 learning_rate를 다르게 해준다. 공식은 다음과 같다.  
 w_t+1 = w_t - {learning_rate/root(G+ls)}(d/dw)(error)  
 공식에서 ls는 Laplace smoothing기법으로 확률이 0이 되는 것을 방지하기 위해 1을 더해주는 것이다. 여기서 정확히는 1e-8값을 사용한다. 그리고 G는 대각행렬의 합을 의미한다.  
 이로써 학습 속도를 올린다.  
-따라서 Moment와 Adaptive를 둘다 사용한 Adam을 주로 쓴다.  
+5. 따라서 Moment와 Adaptive를 둘다 사용한 Adam을 주로 쓴다.  
 
 
 
