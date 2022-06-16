@@ -253,6 +253,7 @@ w_t+1 = w_t - {learning_rate/root(G+ls)}(d/dw)(error)
 그래서 sigmoid를 많이 썼다. (퍼셉트론 당시에만) 공식은 sigmoid = 1/(1+exp^-x) 이다.  
 하지만 문제점이 있다. gradient vanishing 문제  
 딥러닝의 경우 은닉층이 많이 깊어지는 경우가 많은데 이때 오류를 계속 줄이므로 즉 optimization에서 미분 점차 0이 되어저 간다. 그럼 학습이 종료가 되는데 sigmoid의 경우 함수 특성상 미분에서 0이 너무 빠르게 되어 깊은 망을 만들 수 없다.  
+<img width="516" alt="sigmiod" src="https://user-images.githubusercontent.com/50193583/173976975-8727688b-bec3-4892-95cf-9a391027ac52.PNG">
 2. 이를 해결하기 위한 활성화 함수는 많이 나왔지만 그 중 ReLu(Rectified Linear Unit)가 많이 쓰인다.  
 
 
