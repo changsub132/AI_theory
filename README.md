@@ -4,7 +4,9 @@
 [1.1 Cross Entropy](#Cross_Entropy)  
 [2. 베이즈 정리](#베이즈_정리)  
 [3. 신경망](#Neural_network)  
-[3.1 Perceptron](#Perceptron)
+[4. Perceptron](#Perceptron)  
+[4. Deep Learning](#DeepLearning_Start)
+
 
 # Entropy
 사디 카르노  
@@ -205,6 +207,7 @@ backpropagation : 결과값과 실제값의 오류률을 계산하여 가중치�
 7. 이를 입력까지 계속 반복
 8. 그후 다시 feedforward network 진행 오류 다시 계산 오류가 0에 가까워 질때까지 진행
 
+# DeepLearning_Start
 # 이제 실제 딥러닝이라고 불리며 사용하고있는 방법 들에 대해 논의
 
 # Loss Function (손실 함수)
