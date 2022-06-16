@@ -5,7 +5,7 @@
 [2. 베이즈 정리](#베이즈_정리)  
 [3. 신경망](#Neural_network)  
 [4. Perceptron](#Perceptron)  
-[4. Deep Learning](#DeepLearning_Start)
+[5. Deep Learning](#DeepLearning_Start)
 
 
 # Entropy
