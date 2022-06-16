@@ -257,6 +257,9 @@ w_t+1 = w_t - {learning_rate/root(G+ls)}(d/dw)(error)
 
 
 
+# 기본적인 딥러닝에서 좋은 결과를 얻기 위해서는 1순위 손실함수 2순위 최적화함수 3순위 활성화함수 순으로 중요하다. 
+물론 다양한 환경에 맞는 딥러닝 모델 마다 중요시하는 parameter는 그때 그때 다를 수 있다.  
+여기서 말하는 것은 가장 기본적인 딥러닝 즉 어떤 딥러닝이라도 안 중요시 여기지는 않는 그런 parameter를 말한다. (오해가 없기를)  
 
 # Convolution Neural Network (CNN)
 
